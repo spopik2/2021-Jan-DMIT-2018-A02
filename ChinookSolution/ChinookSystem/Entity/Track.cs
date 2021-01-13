@@ -33,12 +33,13 @@ namespace ChinookSystem.Entity
         }
         [Required(ErrorMessage = "Milliseconds is required")]
         public int Milliseconds { get; set; }
-        public int Bytes { get; set; }
+        public int? Bytes { get; set; }
         [Required(ErrorMessage = "Unit Price is required")]
-        public int UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
         public virtual Genre Genres { get; set; }
         public virtual Album Albums { get; set; }
         public virtual MediaType MediaTypes { get; set; }
+        
 
     }
 }
