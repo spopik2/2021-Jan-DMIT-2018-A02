@@ -21,7 +21,7 @@ namespace ChinookSystem.Entity
         [Required(ErrorMessage = "Track name is required")]
         [StringLength(200, ErrorMessage = "Track name is limited to 200 characters")]
         public string Name { get; set; }
-        public int AlbumId { get; set; }
+        public int? AlbumId { get; set; }
         [Required(ErrorMessage = "Media type ID is required")]
         public int MediaTypeId { get; set; }
         public int GenreId { get; set; }
