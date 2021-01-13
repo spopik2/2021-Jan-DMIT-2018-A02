@@ -33,5 +33,7 @@ namespace ChinookSystem.Entity
         public int UnitPrice { get; set; }
         public virtual Genre Genres { get; set; }
         public virtual Album Albums { get; set; }
+        public virtual MediaType MediaTypes { get; set; }
+
     }
 }
