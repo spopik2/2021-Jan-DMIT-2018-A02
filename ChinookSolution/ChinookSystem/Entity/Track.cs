@@ -15,6 +15,7 @@ namespace ChinookSystem.Entity
     [Table("Tracks")]
     internal class Track
     {
+        private string _Composer;
         [Key]
         public int TrackId { get; set; }
         [Required(ErrorMessage = "Track name is required")]
@@ -25,7 +26,11 @@ namespace ChinookSystem.Entity
         public int MediaTypeId { get; set; }
         public int GenreId { get; set; }
         [StringLength(220, ErrorMessage = "Composer is limited to 220 characters")]
-        public string Composer { get; set; }
+        public string Composer
+        {
+            get { return _Composer; }
+            set { _Composer = string.IsNullOrEmpty(value) ? null : value; }
+        }
         [Required(ErrorMessage = "Milliseconds is required")]
         public int Milliseconds { get; set; }
         public int Bytes { get; set; }
