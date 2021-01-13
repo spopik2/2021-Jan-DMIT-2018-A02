@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\dummy.cs" />
+    <Compile Include="BLL\AlbumController.cs" />
     <Compile Include="DAL\ChinookSystemContext.cs" />
     <Compile Include="Entity\Album.cs" />
     <Compile Include="Entity\Artist.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="Entity\MediaType.cs" />
     <Compile Include="Entity\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\dummy.cs" />
+    <Compile Include="ViewModel\ArtistAlbums.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
