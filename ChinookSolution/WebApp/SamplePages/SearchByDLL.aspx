@@ -6,7 +6,7 @@
         <div class="offset-3">
             <asp:Label ID="Label1" runat="server" Text="Select an artist:"></asp:Label>&nbsp;&nbsp;
             <asp:DropDownList ID="ArtistList" runat="server"></asp:DropDownList>&nbsp;&nbsp;
-            <asp:LinkButton ID="SearchAlbums" runat="server">&nbsp;Search</asp:LinkButton>
+            <asp:LinkButton ID="SearchAlbums" runat="server" OnClick="SearchAlbums_Click">&nbsp;Search</asp:LinkButton>
         </div>
     </div>
 </asp:Content>

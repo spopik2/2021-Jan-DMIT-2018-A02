@@ -38,5 +38,10 @@ namespace WebApp.SamplePages
 
             ArtistList.Items.Insert(0, new ListItem ("Select ...", "0"));
         }
+
+        protected void SearchAlbums_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
