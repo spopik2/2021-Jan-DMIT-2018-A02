@@ -48,5 +48,8 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
+        #region Add, Update, and Delete CRUD
+
+        #endregion
     }
 }
