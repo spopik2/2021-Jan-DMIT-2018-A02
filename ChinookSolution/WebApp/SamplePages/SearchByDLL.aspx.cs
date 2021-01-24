@@ -21,6 +21,12 @@ namespace WebApp.SamplePages
                 LoadArtistList();
             }
         }
+        #region ErrorHandlingODS
+        protected void SelectCheckForException(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            MessageUserControl.HandleDataBoundException(e);
+        }
+        #endregion
         protected void LoadArtistList()
         {
             ArtistController sysmgr = new ArtistController();
@@ -44,18 +50,26 @@ namespace WebApp.SamplePages
             if (ArtistList.SelectedIndex == 0)
             {
                 //index 0 is physically pointing to the prompt line
-                Message.Text = "Select an artist for the search.";
+                MessageUserControl.ShowInfo("Search Concern", "Select an artist for the search.");
                 ArtistAlbumList.DataSource = null;
                 ArtistAlbumList.DataBind();
             }
             else
             {
-                //standard look and assignment
-                AlbumController sysmgr = new AlbumController();
-                List<ChinookSystem.ViewModel.ArtistAlbums> info = sysmgr.Albums_GetAlbumsForArtist(
-                    int.Parse(ArtistList.SelectedValue));
-                ArtistAlbumList.DataSource = info;
-                ArtistAlbumList.DataBind();
+                //user friendly error handling 
+                //normally when you leave the web page to your class library
+                //you will want to have error handling (aka try/catch)
+
+                //use MessageUserControl to handle errors
+                //   MessageUserControl has a try/ catch embedded inside its logic
+                MessageUserControl.TryRun(() => {
+                    //standard look and assignment
+                    AlbumController sysmgr = new AlbumController();
+                    List<ChinookSystem.ViewModel.ArtistAlbums> info = sysmgr.Albums_GetAlbumsForArtist(
+                        int.Parse(ArtistList.SelectedValue));
+                    ArtistAlbumList.DataSource = info;
+                    ArtistAlbumList.DataBind();
+                },"Success Message title","Your success message goes here");
             }
         }
     }

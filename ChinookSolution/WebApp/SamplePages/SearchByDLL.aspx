@@ -1,4 +1,8 @@
 ﻿<%@ Page Title="Filter Search Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchByDLL.aspx.cs" Inherits="WebApp.SamplePages.SearchByDLL" %>
+
+<%@ Register Src="~/App_Start/UserControls/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
   <h1>Search Albums by Artist</h1>
     <%-- search area --%>
@@ -16,7 +20,7 @@
     <br /><br />
     <div class="row">
         <div class="offset-3">
-            <asp:Label ID="Message" runat="server" ></asp:Label>
+            <uc1:MessageUserControl runat="server" id="MessageUserControl" />
         </div>
     </div>
      <br /><br />
@@ -63,6 +67,7 @@
             <asp:ObjectDataSource ID="ArtistListODS" runat="server" 
                 OldValuesParameterFormatString="original_{0}" 
                 SelectMethod="Artists_DDLList" 
+                OnSelected="SelectCheckForException"
                 TypeName="ChinookSystem.BLL.ArtistController">
             </asp:ObjectDataSource>
         </div>
