@@ -176,12 +176,15 @@ namespace ChinookSystem.BLL
         {
             using(var context = new ChinookSystemContext())
             {
+                //example of a physical delete 
                 //retrieve the current entity instance based on the incoming parameter
                 var exists = context.Albums.Find(albumid);
                 //staged the remove
                 context.Albums.Remove(exists);
                 //commit the remove
                 context.SaveChanges();
+
+                //a logical delete is actually an update of the instance 
             }
         }
         #endregion
